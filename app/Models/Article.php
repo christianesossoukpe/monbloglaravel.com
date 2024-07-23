@@ -15,5 +15,10 @@ class Article extends Model
         'image',
         'user_id',
     ];
+
+    // Un article peut avoir plusieurs commentaires
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
     
 }

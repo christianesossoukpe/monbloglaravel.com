@@ -14,9 +14,9 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::all();
-        
+
         return view(
-            'layouts.articles', 
+            'layouts.articles',
             ['articles' => $articles]
         );
     }
@@ -43,9 +43,14 @@ class ArticleController extends Controller
      * Display the specified resource.
      * Affiche une resource spécifique
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        //
+        // $article = Article::where("id", $id)->with('comments')->first();
+        $article = Article::find($id)
+            ->with('comments')
+            ->first();
+
+        return view('articles.show', ['article' => $article]);
     }
 
     /**
