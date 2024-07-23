@@ -16,3 +16,20 @@
 3- `restrict`: empêche la suppression de l'enregistrement parent tant qu'il y a des enregistrements enfant associés.
 4- `no action`: aucune action spécifique n'est entreprise sur les enregistrements enfants. si vous essayez de supprimer un enregistrement parent qui a des enfants, cela entraînera des erreurs.
 5- `set default`: définit la clé étrangère sur sa valeur par défaut lorsqu'un enrégistrement parent est supprimé.
+
+## Les noms de route recommandé
+
+Une ressource a par défaut 7 routes (IndexCreateStoreShowEditUpdateDelete). Laravel recommande par défaut des noms de route suivant pour une ressource "articles":
+
+```php
+|Verbe HTTP   |  Chemin       |                Action
+|------------|----------------|----------------------|
+|GET    |       /articles                  |  index|
+|GET    |       /articles/create           |  create|
+|POST    |      /articles                  |  store|
+|GET    |       /articles/{article}        |  show|
+|GET    |       /articles/{article}/edit   |  edit|
+|PUT/PAT|       /articles/{article}        |  update|
+|DETELETE    |  /articles/{article}        |  destroy|
+
+```
