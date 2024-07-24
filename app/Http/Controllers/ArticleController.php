@@ -14,7 +14,10 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        // $articles = Article::orderBy('created_at', 'desc');
+        // $articles = Article::latest()->get();
+        $articles = Article::latest()->paginate(2);
+        // $articles = Article::orderByDesc('created_at')->get();
 
         return view(
             'layouts.articles',
