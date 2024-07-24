@@ -41,11 +41,11 @@
     </header>
     
     <main class="container mt-4">
-    @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
+        @if(session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <!-- Contenu de toutes les pages ici -->
         @yield('contenu')
         <!-- Contenu de toutes les pages ici -->

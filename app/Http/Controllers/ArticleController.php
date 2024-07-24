@@ -120,6 +120,14 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        // Vérifier si l'article a une image et la supprimer
+        if ($article->image) {
+            Storage::disk('public')->delete($article->image);
+        }
+        
+        // Supprimer l'article de la BDD
+        $article->delete();
+        // Rediriger vers la liste des articles avec un message de succès !
+        return redirect()->route('articles.index')->with('success', 'Article supprimé avec succès !');
     }
 }
