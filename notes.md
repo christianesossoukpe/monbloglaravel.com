@@ -30,3 +30,7 @@ Une ressource a par défaut 7 routes (IndexCreateStoreShowEditUpdateDelete). Lar
 |GET    |       /articles/{article}/edit   |  edit|
 |PUT/PAT|       /articles/{article}        |  update|
 |DETELETE    |  /articles/{article}        |  destroy|
+
+## Liens symboliques
+
+Un lien symbolique (ou symlink) est un type de fichier spécial qui pointe vers un autre fichier ou répertoire. Il agit comme un raccourci, permettant d'accéder au fichier ou au répertoire cible en passant par le lien symbolique.

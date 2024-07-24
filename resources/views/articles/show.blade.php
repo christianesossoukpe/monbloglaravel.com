@@ -3,12 +3,14 @@
 @section('contenu')
     
 <article class="mb-5">
-    <img src="{{ $article["image"] }}" alt="" class="card-img-top">
+    <img src="{{ asset('storage/' . $article->image) }}" alt="" class="card-img-top">
     <div class="card-body">
         <h2 class="card-title mb-3 mt-3">
-            {{ $article["title"] }}
+            {{ $article->title }}
         </h2>
-        <p class="card-text">{{ $article["body"] }}</p>
+    <p>Auteur: <strong>{{ $article->user->name }}</strong>. Créé le {{$article->created_at->format('j F Y')}}</p>
+        
+        <p class="card-text">{{ $article->body }}</p>
     </div>
 </article>
 
@@ -33,9 +35,12 @@
             @forelse($article->comments as $comment)
                 <div class="mb-3">
                     <p>
-                        <strong class="text-primary">
-                            User id : {{ $comment->user_id}}
-                        </strong>
+                        <span class="badge text-primary">
+                           {{ $comment->user->name}}
+                        </span>
+                        <span class="badge text-bg-secondary">
+                            {{ $comment->created_at->diffForHumans() }}
+                        </span>
                     </p>
                     <small>{{ $comment["comment"] }}</small>
                 </div>

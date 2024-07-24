@@ -13,5 +13,7 @@ Route::controller(PagesController::class)
 
 Route::controller(ArticleController::class)->group(function() {
     Route::get('/articles', 'index');
-    Route::get('/article/{article}', 'show');
+    Route::post('/articles', 'store');
+    Route::get('/articles/create', 'create');
+    Route::get('/articles/{article}', 'show');
 });
