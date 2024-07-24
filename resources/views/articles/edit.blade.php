@@ -5,8 +5,9 @@
 @endsection
 
 @section('contenu')
-<form method="post" action="{{ route('articles.store') }}" enctype="multipart/form-data">
+<form method="post" action="{{ route('articles.update', $article->id) }}" enctype="multipart/form-data">
   @csrf
+  @method('PATCH')
 
   @if ($errors->any())
     <div class="alert alert-danger">
@@ -25,7 +26,7 @@
       class="form-control @error('title') is-invalid @enderror" 
       name="title" 
       id="title"
-      value="{{ old('title') }}" 
+      value="{{ old('title', $article->title) }}" 
     >
     {{-- Message d'erreur pour le titre --}}
     @error('title')
@@ -38,7 +39,7 @@
       placeholder="Entrez le contenu de l'article" name="body" 
       style="height: 300px;" 
       id="body"
-    >{{old('body')}}</textarea>
+    >{{old('body', $article->body   )}}</textarea>
     <label for="body">Corps de l'article</label>
     {{-- Message d'erreur pour le body --}}
     @error('body')
@@ -47,6 +48,16 @@
   </div>
   <div class="mb-3">
     <label for="image" class="form-label">Choisir une image pour l'article</label>
+
+    @if ($article->image)
+    <img 
+        src="{{ asset('storage/' . $article->image) }}" 
+        alt="Image de l'article" 
+        class="img-thumbnail mb-3"
+        width="200"
+    >
+    @endif
+    
     <input 
     class="form-control @error('image') is-invalid @enderror"
     type="file" 

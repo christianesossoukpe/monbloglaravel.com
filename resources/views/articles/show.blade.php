@@ -11,6 +11,7 @@
     <div class="card-body">
         <h2 class="card-title mb-3 mt-3">
             {{ $article->title }}
+            <a class="btn btn-sm btn-warning ml-3" href="/articles/{{ $article->id }}/edit">Editer</a>
         </h2>
     <p>Auteur: <strong>{{ $article->user->name }}</strong>. Créé le {{$article->created_at->format('j F Y')}}</p>
         
