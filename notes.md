@@ -21,6 +21,7 @@
 
 Une ressource a par défaut 7 routes (IndexCreateStoreShowEditUpdateDelete). Laravel recommande par défaut des noms de route suivant pour une ressource "articles":
 
+```php
 |Verbe HTTP   |  Chemin       |                Action
 |------------|----------------|----------------------|
 |GET    |       /articles                  |  index|
