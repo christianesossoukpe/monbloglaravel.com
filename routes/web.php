@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\SessionsController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +29,11 @@ Route::controller(ArticleController::class)->group(function() {
     Route::delete('/articles/{article}', 'destroy')
         ->name('articles.destroy');
 });
+
+// Routes d'authentification
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/login', [SessionsController::class, 'index'])->name('login');
+Route::post('/login', [SessionsController::class, 'login']);

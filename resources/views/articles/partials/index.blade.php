@@ -7,6 +7,5 @@
             </a>
         </h2>
         <p class="card-text text-truncate">{{ $article["body"] }}</p>
-        <p>/articles/{{$article["id"]}}</p>
     </div>
 </article>
