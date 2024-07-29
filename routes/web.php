@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\SessionsController;
-use App\Http\Controllers\PagesController;
-use Illuminate\Support\Facades\Route;
 
 Route::controller(PagesController::class)
     ->group(function() {
@@ -37,3 +38,6 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/login', [SessionsController::class, 'index'])->name('login');
 Route::post('/login', [SessionsController::class, 'login']);
+
+Route::post('/logout', [SessionsController::class, 'logout']);
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile');

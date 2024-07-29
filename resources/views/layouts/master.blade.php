@@ -34,6 +34,20 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/articles">Articles</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/register">Connection</a>
+                        </li>
+
+                        @auth
+                        <li class="nav-item">
+                          <button>
+<a class="nav-link" href="/login">Deconnection</a>
+                          </button>  
+                        </li>
+                        @endauth
+
+
+                       
                     </ul>
                 </div>
             </div>

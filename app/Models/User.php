@@ -3,10 +3,11 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -52,4 +53,9 @@ class User extends Authenticatable
     public function comments() {
         return $this->hasMany(Comment::class);
     }
+    //un user ne peut avoir q'un seul profil
+
+    public function profile() {
+        return $this->belongsTo(Profile::class);
+    } 
 }
